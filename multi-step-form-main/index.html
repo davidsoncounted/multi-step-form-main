@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>My Frontend project | Multi-step form</title>
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar start -->
+
+
+  <div class="main-div">
+    <div class="flex-div">
+      <div class="main-side-bar">
+        <div class="margin">
+          <button class="btn" id="one" onclick="num1()">1</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 1</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Your info</span><br>
+          
+          <button class="btn" id="two" onclick="num2()">2</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 2</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Select plan</span> 
+          <br>
+          <button class="btn" id="three"  onclick="num3()">3</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 3</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Add-ons</span> 
+          <br>
+          <button class="btn" id="ano" onclick="num4()">4</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%);">STEP 4</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Summary</span> 
+    
+        </div>  
+        <div class="right-bar" id="step-1">
+          <h1>Personal info</h1>
+          <p>Please provide your name, email address, and phone number.</p>
+          <br><br>
+          <form id="form">
+              <label class="label5">Name</label><br>
+              <input type="text" name="Name" placeholder="e.g. Davidson Counted" id="username"><br><br>
+              <label class="label5">Email Address</label><br>
+              <input type="email" name="Email" placeholder="e.g. davidson@forem.com" id="email"><br><br>
+              <label class="label5">Phone Number</label><br>
+              <input type="phone" name="Number" id="Pnumber" placeholder="e.g. +1 234 567 140" required> <br>
+              <br><br><br><br><br><br>
+              <input type="button" value="Next step" id="next" onclick="firstNext()">
+
+          </form>
+          
+        </div>
+        <div class="right-bar" id="step-2">
+          <h1>Select your plan</h1>
+          <p>You have the option of monthly or yearly billing</p>
+          <br><br>
+            <div class="card-div">
+              <input type="radio" id="radi" name="sec2" class="arc" checked>
+              <label class="label1" for="radi">
+                <div class="arcade">
+                  <img src="assets/images/icon-arcade.svg" alt="">
+                  <br><br>
+                  <h3 class="h3">Arcade</h3>
+                  <span class="span" id="pay1">$9/mo</span>
+                  <span class="span" id="pay1a">$90/yr</span>
+                  <span class="span1" id="month-free1"><b>2 Months free</b></span>
+                </div>
+              </label>
+              <input type="radio" name="sec2" id="rad" class="adv">
+              <label class="label2" for="rad">
+                <div class="advanced">
+                  <img src="assets/images/icon-advanced.svg" alt="">
+                  <br><br>
+                  <h3 class="h3">Advanced</h3>
+                  <span class="span" id="pay2">$12/mo</span>
+                  <span class="span" id="pay2b">$120/yr</span>
+                  <span class="span1" id="month-free2"><b>2 months free</b></span>
+                </div>
+              </label>
+              <input type="radio" name="sec2" id="po" class="pr">
+              <label class="label2" for="po">
+                <div class="pro">
+                  <img src="assets/images/icon-pro.svg" alt="">
+                  <br><br>
+                  <h3 class="h3">Pro</h3>
+                  <span class="span" id="pay3">$15/mo</span>
+                  <span class="span" id="pay3c">$150/yr</span>
+                  <span class="span1" id="month-free3"><b>2 months free</b></span>
+                </div>
+              </label>
+           </div>
+          <div class="monthly">
+            
+            <label for="monthly_sub" id="left-side">Monthly</label>
+            <aside class="slide-container">
+              <input type="radio" name="subscription-period" id="monthly_sub" checked class="month-slide">
+              <label for="monthly_sub" class="monthly-slider"></label>
+              <input type="radio"  name="subscription-period" id="yearly_sub"  class="year-slide">
+            <label for="yearly_sub" class="yearly-slider"></label></aside>
+            <label for="yearly_sub" id="right-side">Yearly</label>
+          </div> 
+          <div class="footer">
+            <h4 onclick="gback()" style="cursor:pointer;">Go back</h4>
+            <input type="button" value="Next step" id="next" onclick="next();">
+          </div>
+        </div>
+        <div class="right-bar" id="step-3">
+          <h1>Pick add-ons</h1>
+          <p>Add-ons help enhance your gaining experience</p>
+          <br><br>
+          <div class="flat-div">
+            <div class="online-service">
+              <input class="checkbox2" type="checkbox">
+              <h3 class="online-h3" >online Service</h3>
+              <span class="sp" id="online-first-monthly" >+$1/mo</span>
+              <span class="sp" id="online-second-yearly">+$10/yr</span>
+              <p class="on-p">Access to multiplayer games</p>
+            </div>
+            <br>
+            <div class="online-service">
+              <input class="checkbox2" type="checkbox">
+              <h3 class="online-h3">Larger Storage</h3>
+              <span class="sp" id="larger-first-monthly">+$2/mo</span>
+              <span class="sp" id="larger-second-yearly">+$20/yr</span>
+              <p class="on-p">Extra 1TB of cloud save</p>
+            </div>
+            <br>
+            <div class="customizable">
+              <input class="checkbox2" type="checkbox">
+              <h3 class="online-h3">Customizable profile</h3>
+              <span class="sp" id="customize-first-monthly">$2/mo</span>
+              <span class="sp" id="customize-second-yearly">$20/yr</span>
+              <p class="on-p">Custom theme on your profile</p>
+            </div>
+          </div>
+          <!-- <div class="monthly">
+            <h4>Monthly </h4> 
+            <span>YEarly</span>
+          </div> -->
+          <div class="footer">
+            <h4 onclick="back()" style="cursor:pointer;">Go back</h4>
+            <input type="button" value="Next step" id="next" onclick="tap();">
+          </div>
+          
+        </div>
+
+        <div class="finishing" id="step-4">
+          <h1>Finishing up</h1>
+          <p>Double-check that everything looks OK before confirming</p>
+          <div class="card">
+            <div class="change">
+                <div class="sub" style="display: flex; justify-content: space-between;">
+                  <h4 style="margin-top: 60px;" id="arcade-monthly">Arcade (Monthly) </h4>
+                  <h4 style="margin-top: 60px;" id="advanced-monthly">Advanced (Monthly) </h4>
+                  <h4 style="margin-top: 60px;" id="pro-monthly">Pro (Monthly) </h4>
+                  <h4 style="margin-top: 60px;" id="arcade-yearly">Arcade (yearly) </h4>
+                  <h4 style="margin-top: 60px;" id="advanced-yearly">Advanced (yearly) </h4>
+                  <h4 style="margin-top: 60px;" id="pro-yearly">Pro (yearly) </h4>
+                  <span style="font-weight:bolder; position: relative; right: 200px; top: 100px;" id="arcade-monthly-sub">$9/mo</span>
+                  <span style="font-weight:bolder;" id="arcade-yearly-sub">$90/yr</span>
+                  <span style="font-weight:bolder;" id="advanced-monthly-sub">$12/mo</span>
+                  <span style="font-weight:bolder;" id="advanced-yearly-sub">$120/yr</span>
+                  <span style="font-weight:bolder;" id="pro-monthly-sub">$15/mo</span>
+                  <span style="font-weight:bolder;" id="pro-yearly-sub">$150/yr</span>
+                </div>
+              
+               <p style="margin-top: -20px; text-decoration: underline; cursor: pointer;" onclick="backTo()">change</p>
+             
+              <div class="line"><div class="linem"></div></div> 
+              <p>online service  <span style="font-weight:bolder; margin-left: 250px; margin-top: 60px;">+$1/mo</span></p>
+              <p>Larger storage <span style="font-weight:bolder; margin-left: 250px;">+2/mo</span></p>
+            </div>
+          </div>
+          <p style="margin-left: 25px;">Total (per month)  <span style="margin-left: 230px; color:hsl(228, 45%, 44%);">+$12/mo</span></p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="step4-footer">
+            <h4 onclick="step4Back()" style="cursor:pointer;">Go back</h4>
+            <input style="background-color: hsl(243, 100%, 62%);" type="button" onclick="con()" value="Confirm">
+          </div>
+
+        </div>
+
+        <div class="last-section" id="last-sec">
+          <img style="margin-top: 150px; margin-left: 320px;" src="assets/images/icon-thank-you.svg" alt="" >
+          <h1 style="text-align: center; margin-top: 50px;" >Thank you!</h1>
+          <p style="margin-left: 40px; text-align: center;">Thanks for confirmikng your subscription! We hope you have <br> fun using our platform. if you ever need support, please feel free to email us at support@loremgmaing.com</p>
+        </div>
+
+        
+        
+      </div>
+
+     
+    </div>
+   
+  </div>
+
+  <!-- <input type="radio">
+  <input type="radio">
+  <input type="radio"> -->
+  
+
+   <!-- Step 1 end -->
+
+    
+      <!-- Step 2 start -->
+    <!-- <div class="main-div">
+    <div class="flex-div">
+      <div class="main-side-bar">
+        <div class="margin">
+          <button id="first" onclick="num1()">1</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 1</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Your info</span><br>
+          
+          <button class="btn" onclick="num2()">2</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 2</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Select plan</span> 
+          <br>
+          <button class="btn" onclick="num3()">3</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 3</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Add-ons</span> 
+          <br>
+          <button class="btn" onclick="num4()">4</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%);">STEP 4</span><br>
+          <span style=" margin-left: 60px; color: #fff; font-size: larger;">Summary</span> 
+    
+        </div> -->
+        
+
+     
+    </div>
+   
+  </div> 
+    
+      <!--Step 2 end -->
+    
+      <!-- Step 3 start -->
+      <!-- <div class="main-div">
+        <div class="flex-div">
+          <div class="main-side-bar">
+            <div class="margin">
+              <button id="first" onclick="num1()">1</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 1</span><br>
+              <span style=" margin-left: 60px; color: #fff; font-size: larger;">Your info</span><br>
+              
+              <button class="btn" onclick="num2()">2</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 2</span><br>
+              <span style=" margin-left: 60px; color: #fff; font-size: larger;">Select plan</span> 
+              <br>
+              <button class="btn" onclick="num3()">3</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%); ">STEP 3</span><br>
+              <span style=" margin-left: 60px; color: #fff; font-size: larger;">Add-ons</span> 
+              <br>
+              <button class="btn" onclick="num4()">4</button><span style=" margin-left: 10px; color: hsl(231, 11%, 63%);">STEP 4</span><br>
+              <span style=" margin-left: 60px; color: #fff; font-size: larger;">Summary</span> 
+        
+            </div> -->
+            
+           
+            
+          </div>
+         
+    
+      <!-- Pick add-ons
+      Add-ons help enhance your gaming experience.
+    
+      Online service
+      Access to multiplayer games
+      +$1/mo
+    
+      Larger storage
+      Extra 1TB of cloud save
+      +$2/mo
+    
+      Customizable Profile
+      Custom theme on your profile
+      +$2/mo
+    
+      Go Back
+      Next Step
+    
+      Step 3 end -->
+    
+      <!-- Step 4 start -->
+    
+      <!-- Finishing up
+      Double-check everything looks OK before confirming. -->
+    
+      <!-- Dynamically add subscription and add-on selections here -->
+    
+      <!-- Total (per month/year)
+    
+      Go Back
+      Confirm -->
+    
+      <!-- Step 4 end -->
+    
+      <!-- Step 5 start -->
+    
+      <!-- Thank you!
+    
+      Thanks for confirming your subscription! We hope you have fun 
+      using our platform. If you ever need support, please feel free  -->
+      <!-- to email us at support@loremgaming.com.
+    
+       Step 5 end  -->
+
+  <script src="../multi.js"></script>
+      
+     
+
+    
+      
+      
+    
+</body>
+</html>
